@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Section {
+public class Section  extends BaseEntity{
 
     @Id
     @GeneratedValue

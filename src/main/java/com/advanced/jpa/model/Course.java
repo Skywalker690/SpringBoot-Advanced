@@ -3,15 +3,20 @@ package com.advanced.jpa.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Course {
+@SuperBuilder
+
+public class Course  extends BaseEntity{
 
     @Id
     @GeneratedValue
