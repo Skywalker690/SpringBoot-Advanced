@@ -7,12 +7,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "AUTHOR_TBL")
 public class Author {
 
     @Id
@@ -42,14 +42,10 @@ public class Author {
 
     private int age;
 
-    /*
-    @Column(updatable = false)
-    private LocalDate createdAt;
+    @ManyToMany(mappedBy = "authors")
+    private List<Course> courses;
 
-    @Column(insertable = false)
-    private LocalDate modifiedAt;
 
-     */
 }
 
 

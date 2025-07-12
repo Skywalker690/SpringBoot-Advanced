@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/data_jpa
+    url: jdbc:postgresql://localhost:5432/jpa_db
     username: postgres
     password: tiger
     driver-class-name: org.postgresql.Driver
