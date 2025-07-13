@@ -1,14 +1,23 @@
 package com.advanced.jpa.model;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+@EqualsAndHashCode(callSuper = true)
 @SuperBuilder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Text {
+@Entity
+@DiscriminatorValue("T")
+public class Text extends Resource{
+
     private String content;
 }
