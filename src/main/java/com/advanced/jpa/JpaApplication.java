@@ -30,7 +30,7 @@ public class JpaApplication {
 						.firstName(faker.name().firstName())
 						.lastName(faker.name().lastName())
 						.age(faker.number().numberBetween(10,60))
-						.email("as"+i+"@gmail.com")
+						.email(faker.name().username()+"@gmail.com")
 						.build();
 				repository.save(author);
 			}
