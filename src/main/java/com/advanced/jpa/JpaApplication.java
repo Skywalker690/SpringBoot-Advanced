@@ -4,6 +4,7 @@ import com.advanced.jpa.model.Author;
 import com.advanced.jpa.model.Video;
 import com.advanced.jpa.repository.AuthorRepository;
 import com.advanced.jpa.repository.VideoRepository;
+import com.github.javafaker.Faker;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,14 +21,19 @@ public class JpaApplication {
 
 @Bean
 	public CommandLineRunner commandLineRunner(
-			VideoRepository repository
+			AuthorRepository repository
 	){
 		return args -> {
-			var video = Video.builder()
-					.name("abc.mp4")
-					.length(5)
-					.build();
-			repository.save(video);
+			for (int i=0;i<50;i++) {
+				Faker faker = new Faker();
+				var author = Author.builder()
+						.firstName(faker.name().firstName())
+						.lastName(faker.name().lastName())
+						.age(faker.number().numberBetween(10,60))
+						.email("as"+i+"@gmail.com")
+						.build();
+				repository.save(author);
+			}
 		};
 	}
 }
