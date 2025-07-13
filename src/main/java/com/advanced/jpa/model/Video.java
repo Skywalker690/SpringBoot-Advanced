@@ -15,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 @Entity
-@PrimaryKeyJoinColumn(name = "video_id")
+//@PrimaryKeyJoinColumn(name = "video_id")
 //@DiscriminatorValue("V")
 
 public class Video extends Resource{
