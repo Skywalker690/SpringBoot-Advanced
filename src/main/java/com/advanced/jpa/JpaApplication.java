@@ -4,11 +4,13 @@ import com.advanced.jpa.model.Author;
 import com.advanced.jpa.model.Video;
 import com.advanced.jpa.repository.AuthorRepository;
 import com.advanced.jpa.repository.VideoRepository;
+import com.advanced.jpa.specification.AuthorSpecification;
 import com.github.javafaker.Faker;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.domain.Specification;
 
 import java.time.LocalDate;
 
@@ -47,8 +49,13 @@ public class JpaApplication {
 			//repository.UpdateAuthor(20,1);
 			//repository.UpdateAllAuthors("main");
 
-			repository.findByNamedQuery(30)
-					.forEach(System.out::println);
+			//repository.findByNamedQuery(30)
+			//		.forEach(System.out::println);
+
+			Specification<Author> spec =Specification
+					.where(AuthorSpecification.hasAge(34))
+					.and(AuthorSpecification.firstNameLike("Sa"));
+			repository.findAll(spec).forEach(System.out::println);
 
 		};
 	}
