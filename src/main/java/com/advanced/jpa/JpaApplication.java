@@ -34,6 +34,19 @@ public class JpaApplication {
 						.build();
 				repository.save(author);
 			}
+			//Update author with ID 1
+			var me = Author.builder()
+					.id(1)
+					.firstName("Sanjo")
+					.lastName("Siby")
+					.age(19)
+					.email("sanjoksiby0@gmail.com")
+					.build();
+			//repository.save(me);
+
+			//repository.UpdateAuthor(20,1);
+			repository.UpdateAllAuthors("main");
+
 		};
 	}
 }
