@@ -32,7 +32,7 @@ public class JpaApplication {
 						.age(faker.number().numberBetween(10,60))
 						.email(faker.name().username()+"@gmail.com")
 						.build();
-				repository.save(author);
+				//repository.save(author);
 			}
 			//Update author with ID 1
 			var me = Author.builder()
@@ -45,7 +45,10 @@ public class JpaApplication {
 			//repository.save(me);
 
 			//repository.UpdateAuthor(20,1);
-			repository.UpdateAllAuthors("main");
+			//repository.UpdateAllAuthors("main");
+
+			repository.findByNamedQuery(30)
+					.forEach(System.out::println);
 
 		};
 	}

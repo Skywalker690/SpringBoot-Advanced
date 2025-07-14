@@ -1,20 +1,23 @@
 package com.advanced.jpa.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @SuperBuilder
+@NamedQuery(
+        name = "Author.findByNamedQuery",
+        query = "select a from Author a where a.age>=:age"
+
+)
 public class Author extends BaseEntity{
 
     @Id
