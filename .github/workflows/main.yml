@@ -18,10 +18,6 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: 17
-      - name: Unit Tests
-        run: mvn -B test --file pom.xml
-
       - name : Build Application
-        run : |
-          mvn clean
+        run :
           mvn -B package --file pom.xml
